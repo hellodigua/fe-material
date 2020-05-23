@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <my-sidebar />
-    <nuxt />
+  <div id="app">
+    <my-sidebar class="app-side" />
+    <nuxt class="app-content" />
   </div>
 </template>
 <script>
@@ -13,7 +13,7 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -32,33 +32,26 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+#__nuxt,
+#__layout,
+#app {
+  width: 100vw;
+  height: 100vh;
 }
 
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+#app {
+  display: flex;
 }
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.app {
+  &-side {
+    width: 250px;
+    height: 100%;
+  }
+  &-content {
+    flex: 1;
+    min-height: 100%;
+    margin-left: 20px;
+  }
 }
 </style>
