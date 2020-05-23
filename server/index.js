@@ -13,6 +13,8 @@ async function watch() {
   await initSidebar()
 }
 
+watch()
+
 async function start() {
   // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
@@ -42,7 +44,5 @@ async function start() {
     badge: true
   })
 }
-
-watch()
 
 start()

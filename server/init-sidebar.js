@@ -1,12 +1,9 @@
-const { genSidebar, filehelper } = require('../utils/index')
+const { genSidebar } = require('../utils/index')
 
-// const rootpath = ''
+async function initSidebar() {
+  const routes = await genSidebar('CSS', 'css')
 
-function initSidebar() {
-  const a = genSidebar('首页', filehelper.getFileName('/pages/'), true)
-
-  // eslint-disable-next-line no-console
-  console.log(a)
+  return routes
 }
 
 module.exports = initSidebar

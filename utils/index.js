@@ -1,17 +1,13 @@
+const path = require('path')
 const fs = require('fs-extra')
 
-const genSidebar = (
-  title,
-  children = [''],
-  collapsable = true,
-  sidebarDepth = 2
-) => {
+const genSidebar = async (title, dir) => {
   const arr = []
+  const items = await getFileName(`../pages/${dir}`)
+
   arr.push({
     title,
-    children,
-    collapsable,
-    sidebarDepth
+    children: items
   })
   return arr
 }
@@ -19,38 +15,25 @@ const genSidebar = (
 // 排除检查的文件
 const excludes = ['.DS_Store']
 
-const filehelper = {
-  async getFileName(rpath) {
-    const filenames = []
-    // const fileTypes = /\.md$/ // 只匹配以md结尾的文件
-    const files = await fs.read(rpath)
+const getFileName = async (rpath) => {
+  const fileNames = []
+  const pagePath = path.resolve(__dirname, rpath)
+  // const fileTypes = /\.vue$/ // 只匹配以vue结尾的文件
+  const files = await fs.readdir(pagePath)
 
-    console.log(files)
+  files.forEach((file) => {
+    if (!excludes.includes(file)) {
+      const filePath = pagePath + '/' + file
+      const fileInfo = fs.statSync(filePath)
+      if (fileInfo.isFile() && file.endsWith('.vue')) {
+        fileNames.push(file.replace('.vue', ''))
+      }
+    }
+  })
 
-    // files.forEach((file) => {
-    //   if (!excludes.includes(file)) {
-    //     const fullpath = rpath + '/' + file
-    //     const fileinfo = fs.statSync(fullpath)
-    //     if (fileinfo.isFile()) {
-    //       if (file.indexOf('.md') > 0) {
-    //         // if(fileTypes.test(file) > 0) {
-    //         if (file === 'index.md') {
-    //           file = ''
-    //         } else {
-    //           file = file.replace('.md', '')
-    //         }
-    //         filenames.push(file)
-    //       }
-    //     }
-    //   }
-    // })
-    // console.log(filenames)
-    filenames.sort() // 排序
-    return filenames
-  }
+  return fileNames
 }
 
 module.exports = {
-  filehelper,
   genSidebar
 }
