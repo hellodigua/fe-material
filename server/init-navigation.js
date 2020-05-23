@@ -18,8 +18,6 @@ async function initNav() {
 
   const navConfig = []
 
-  console.log(JSON.stringify(routes))
-
   navConfig.push(routes)
 
   writeNavFile({

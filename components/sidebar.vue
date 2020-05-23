@@ -10,9 +10,7 @@
     active-text-color="#409EFF"
   >
     <div v-for="(item, index) in navConfig" :key="index">
-      <el-menu-item v-if="item.type === 'menu'" :index="item.routes">{{
-        item.name
-      }}</el-menu-item>
+      <el-menu-item v-if="item.type === 'menu'" :index="item.routes">{{ item.name }}</el-menu-item>
       <el-menu-item-group v-if="item.type === 'group'">
         <span slot="title" class="group-title">{{ item.name }} </span>
         <el-menu-item

@@ -5,6 +5,7 @@
 </template>
 <script>
 export default {
+  pageName: '喵帕斯2',
   props: {},
   data() {
     return {}
