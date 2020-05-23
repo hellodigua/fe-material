@@ -1,15 +1,19 @@
 const path = require('path')
 const fs = require('fs-extra')
 
-const genSidebar = async (title, dir) => {
-  const arr = []
+const genNav = async (name, dir) => {
   const items = await getFileName(`../pages/${dir}`)
 
-  arr.push({
-    title,
-    children: items
-  })
-  return arr
+  return {
+    type: 'group',
+    name,
+    children: items.map((item) => {
+      return {
+        name: item,
+        routes: `/${dir}/${item}`
+      }
+    })
+  }
 }
 
 // 排除检查的文件
@@ -35,5 +39,5 @@ const getFileName = async (rpath) => {
 }
 
 module.exports = {
-  genSidebar
+  genNav
 }

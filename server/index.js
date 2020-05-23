@@ -6,11 +6,11 @@ const config = require('../nuxt.config.js')
 const app = new Koa()
 
 // Import and Set Nuxt.js options
-const initSidebar = require('./init-sidebar')
+const initNav = require('./init-navigation')
 config.dev = app.env !== 'production'
 
 async function watch() {
-  await initSidebar()
+  await initNav()
 }
 
 watch()

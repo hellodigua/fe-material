@@ -28,34 +28,14 @@
 </template>
 
 <script>
-const navConfig = [
-  {
-    type: 'menu',
-    name: '主页',
-    routes: '/'
-  },
-  {
-    type: 'group',
-    name: 'CSS',
-    children: [
-      {
-        name: 'A',
-        routes: '/css/a'
-      },
-      {
-        name: 'B',
-        routes: '/css/b'
-      }
-    ]
-  }
-]
+import config from '../static/config'
 
 export default {
   name: 'Sidebar',
   components: {},
   data() {
     return {
-      navConfig
+      navConfig: config.nav
     }
   }
 }
