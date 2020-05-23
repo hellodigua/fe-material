@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  pageName: '喵帕斯2',
+  pageName: '喵帕斯29',
   props: {},
   data() {
     return {}

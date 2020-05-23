@@ -1,11 +1,11 @@
 <template>
   <div>
-    css-aaa
+    css-a
   </div>
 </template>
 <script>
 export default {
-  pageName: '喵帕斯11',
+  pageName: '喵帕斯666',
   props: {},
   data() {
     return {}

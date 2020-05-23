@@ -2,27 +2,23 @@ const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const config = require('../nuxt.config.js')
+const { initNav, watchFiles } = require('./nav-helper')
 
 const app = new Koa()
 
 // Import and Set Nuxt.js options
-const initNav = require('./init-navigation')
 config.dev = app.env !== 'production'
 
-async function watch() {
-  await initNav()
-}
-
-watch()
+// 初始化导航
+initNav()
+// 监听文件变动
+watchFiles()
 
 async function start() {
   // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
 
-  const {
-    host = process.env.HOST || '127.0.0.1',
-    port = process.env.PORT || 3000
-  } = nuxt.options.server
+  const { host = process.env.HOST || '127.0.0.1', port = process.env.PORT || 3000 } = nuxt.options.server
 
   await nuxt.ready()
   // Build in development

@@ -47,6 +47,16 @@ const getFileItem = async (rpath) => {
   return fileItems
 }
 
+/**
+ * 写入配置文件
+ */
+function writeNavFile(navConfig) {
+  const str = JSON.stringify(navConfig)
+
+  fs.writeFile(`./static/config.json`, str)
+}
+
 module.exports = {
-  genNav
+  genNav,
+  writeNavFile
 }
