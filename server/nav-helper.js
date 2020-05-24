@@ -6,10 +6,12 @@ const { genNav, writeNavFile } = require('./utils')
  */
 async function initNav() {
   const routes = await genNav('CSS', 'css')
+  const routes1 = await genNav('HTML', 'html')
 
   const navConfig = []
 
   navConfig.push(routes)
+  navConfig.push(routes1)
 
   writeNavFile({
     nav: navConfig
