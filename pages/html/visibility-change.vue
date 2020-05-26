@@ -14,24 +14,24 @@ export default {
   watch: {},
   created() {},
   mounted() {
-    this.init()
+    document.addEventListener('visibilitychange', this.changeTitle)
+  },
+  beforeDestroy() {
+    document.removeEventListener('visibilitychange', this.changeTitle)
   },
   methods: {
-    init() {
-      document.addEventListener('visibilitychange', function() {
-        const OriginTitle = ''
-        let str
-        if (document.hidden) {
-          document.title = '(✿◡‿◡)我藏好了哦 - '
-          clearTimeout(str)
-        } else {
-          document.title = 'ヾ(o◕∀◕)ﾉヾ被发现啦~ '
-          // console.log('show');
-          str = setTimeout(function() {
-            document.title = OriginTitle
-          }, 2000)
-        }
-      })
+    changeTitle() {
+      const OriginTitle = ''
+      let str
+      if (document.hidden) {
+        document.title = '(✿◡‿◡)我藏好了哦 - '
+        clearTimeout(str)
+      } else {
+        document.title = 'ヾ(o◕∀◕)ﾉヾ被发现啦~ '
+        str = setTimeout(function() {
+          document.title = OriginTitle
+        }, 2000)
+      }
     }
   }
 }

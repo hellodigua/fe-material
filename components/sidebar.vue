@@ -18,8 +18,10 @@
           v-show="!subItem.hidden"
           :key="subIndex"
           :index="subItem.routes"
-          >{{ subItem.name }}</el-menu-item
         >
+          <span>{{ subItem.name }}</span>
+          <span v-show="$route.path === subItem.routes" class="code" @click="handleClickOpenSource(subItem)">源码</span>
+        </el-menu-item>
       </el-menu-item-group>
     </div>
   </el-menu>
@@ -35,6 +37,13 @@ export default {
     return {
       navConfig: config.nav
     }
+  },
+  methods: {
+    handleClickOpenSource(subItem) {
+      const url = `https://github.com/hellodigua/fe-material/blob/master/pages${subItem.routes}.vue`
+
+      window.open(url)
+    }
   }
 }
 </script>
@@ -42,5 +51,11 @@ export default {
 .group-title {
   margin-left: -10px;
   font-size: 14px;
+}
+
+.code {
+  float: right;
+  cursor: pointer;
+  font-size: 12px;
 }
 </style>
