@@ -9,14 +9,34 @@ export default {
   props: {},
   data() {
     return {
-      text: 'TikTok'
+      text: ''
     }
   },
   computed: {},
   watch: {},
   created() {},
-  mounted() {},
-  methods: {}
+  mounted() {
+    const list = [
+      { title: 'i', time: 0 },
+      { title: 'never', time: 1000 },
+      { title: 'meet', time: 2000 },
+      { title: 'that', time: 3000 },
+      { title: 'day', time: 4000 }
+    ]
+
+    this.dynamicText(list)
+  },
+  methods: {
+    dynamicText(list) {
+      for (const i in list) {
+        const { title, time } = list[i]
+
+        setTimeout(() => {
+          this.text = title
+        }, time)
+      }
+    }
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -30,10 +50,11 @@ export default {
 
 .text {
   color: white;
-  font-size: 100px;
+  font-size: 150px;
   position: relative;
   margin: 0 auto;
   padding: 2px;
+  text-transform: uppercase;
 }
 
 .text::before {
