@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <my-sidebar class="app-side" />
-    <nuxt class="app-content" />
+    <div class="app-content">
+      <nuxt />
+    </div>
   </div>
 </template>
 <script>

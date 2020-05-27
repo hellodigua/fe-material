@@ -8,6 +8,8 @@ yarn-debug.log*
 yarn-error.log*
 www
 
+static/config.json
+
 # Runtime data
 pids
 *.pid
