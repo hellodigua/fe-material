@@ -1,29 +1,38 @@
 const fs = require('fs-extra')
 const { genNav, writeNavFile } = require('./utils')
 
+const configRoute = [
+  {
+    name: 'CSS',
+    path: 'css'
+  },
+  {
+    name: 'HTML',
+    path: 'html'
+  },
+  {
+    name: '组件',
+    path: 'components'
+  },
+  {
+    name: 'Demo',
+    path: 'demo'
+  },
+  {
+    name: 'Function',
+    path: 'function'
+  }
+]
+
 /**
  * 初始化导航
  */
-async function initNav() {
-  const routes = await genNav('CSS', 'css')
-  const routes1 = await genNav('HTML', 'html')
-  const routes2 = await genNav('组件', 'components')
-  const routes3 = await genNav('Demo', 'demo')
-  const routes4 = await genNav('Function', 'function')
-
-  const navConfig = []
-
-  navConfig.push(routes)
-  navConfig.push(routes1)
-  navConfig.push(routes2)
-  navConfig.push(routes3)
-  navConfig.push(routes4)
-
-  writeNavFile({
-    nav: navConfig
+function initNav() {
+  Promise.all(configRoute.map((item) => genNav(item.name, item.path))).then((nav) => {
+    writeNavFile({
+      nav
+    })
   })
-
-  return navConfig
 }
 
 /**
