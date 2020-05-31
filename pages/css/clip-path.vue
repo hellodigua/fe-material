@@ -1,6 +1,7 @@
 <template>
   <div>
     <p>如果生成文字形式的SVG的话，其实效果是更酷炫的，有需要可以实现一下</p>
+    <p>https://github.com/oubenruing/svg-text-animate</p>
     <div class="container">
       <div class="img bg"></div>
       <svg width="0" height="0">
@@ -43,9 +44,10 @@ export default {
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    background: url('http://static.digua.pro/202005272252490.jpg') no-repeat center;
+    width: 1000px;
+    height: 1000px;
+    background: url('https://i.loli.net/2020/05/31/keoxwi3HpWAfXs2.gif') no-repeat center;
+    background-size: cover;
     clip-path: url('#clipSVG');
   }
 }

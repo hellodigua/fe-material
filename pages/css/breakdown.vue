@@ -17,11 +17,11 @@ export default {
   created() {},
   mounted() {
     const list = [
-      { title: 'i', time: 0 },
-      { title: 'never', time: 1000 },
-      { title: 'meet', time: 2000 },
-      { title: 'that', time: 3000 },
-      { title: 'day', time: 4000 }
+      { title: 'three', time: 0 },
+      { title: 'two', time: 1000 },
+      { title: 'one', time: 2000 },
+      { title: 'hello', time: 3000 },
+      { title: 'world', time: 4000 }
     ]
 
     this.dynamicText(list)

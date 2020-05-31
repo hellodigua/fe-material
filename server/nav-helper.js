@@ -9,6 +9,7 @@ async function initNav() {
   const routes1 = await genNav('HTML', 'html')
   const routes2 = await genNav('组件', 'components')
   const routes3 = await genNav('Demo', 'demo')
+  const routes4 = await genNav('Function', 'function')
 
   const navConfig = []
 
@@ -16,6 +17,7 @@ async function initNav() {
   navConfig.push(routes1)
   navConfig.push(routes2)
   navConfig.push(routes3)
+  navConfig.push(routes4)
 
   writeNavFile({
     nav: navConfig
