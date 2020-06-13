@@ -2,6 +2,7 @@
   <div>
     <p>如果生成文字形式的SVG的话，其实效果是更酷炫的，有需要可以实现一下</p>
     <p>https://github.com/oubenruing/svg-text-animate</p>
+    <p>https://bennettfeely.com/clippy/</p>
     <div class="container">
       <div class="img bg"></div>
       <svg width="0" height="0">
