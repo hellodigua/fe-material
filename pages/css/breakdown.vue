@@ -17,10 +17,9 @@ export default {
   created() {},
   mounted() {
     const list = [
-      { title: 'three', time: 0 },
-      { title: 'two', time: 1000 },
-      { title: 'one', time: 2000 },
-      { title: 'tiktok', time: 3000 }
+      { title: 'tik', time: 0 },
+      { title: 'tok', time: 1000 },
+      { title: 'tiktok', time: 2000 }
     ]
 
     this.dynamicText(list)
