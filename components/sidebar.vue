@@ -1,5 +1,6 @@
 <template>
   <el-menu
+    v-show="!hideMenu"
     mode="vertical"
     :show-timeout="200"
     :default-active="$route.path"
@@ -35,8 +36,16 @@ export default {
   components: {},
   data() {
     return {
-      navConfig: config.nav
+      navConfig: config.nav,
+      hideMenu: false
     }
+  },
+  created() {
+    const {
+      query: { h = 'true' }
+    } = this.$route
+
+    this.hideMenu = h === 'true'
   },
   methods: {
     handleClickOpenSource(subItem) {
